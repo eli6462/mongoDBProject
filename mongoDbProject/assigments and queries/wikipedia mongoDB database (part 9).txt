@@ -1,0 +1,98 @@
+חלק ט'
+ – בניית בסיס נתונים 
+mongoDB
+ לנושא מ- wikipedia
+
+נושא:
+פררארי, 
+דגם:"לה-פררארי"
+
+לינק לעמוד הוויקיפדיה:
+https://en.wikipedia.org/wiki/LaFerrari
+
+1.
+use carsDB
+
+2.
+db.car.insert({carName:"LaFerrari"})
+
+3.
+db.car.update({carName:"LaFerrari"},
+{
+$push:
+{
+overview:
+{
+manufacturer : "Ferrari N.V.",
+production : ["June 2013 – January 2016 (coupé, 500 examples)","October 2016 – August 2018 (Aperta, 210 examples)"],
+modelYears : ["2013–2016 (coupé)","2016–2018 (Aperta)"],
+designer: "Centro Stile Ferrari under Flavio Manzoni"
+}
+}
+})
+
+4.
+הערה:
+ב layout יש פסיק באמצע, אך מדובר בשם סטרינג אחד ארוך
+
+db.car.update({carName:"LaFerrari"},
+{
+$push:
+{
+bodyAndChassis:
+{
+class: "Sports car (S)",
+bodyStyle:["2-door coupé","2-door targa top (Aperta)"],
+layout: "Rear mid-engine, rear-wheel-drive",
+doors: ["Butterfly (coupé)","Swan (Aperta)"],
+Related: ["Ferrari FXX-K","Ferrari Daytona SP3"]
+}
+}
+})
+
+5.
+db.car.update({carName:"LaFerrari"},
+{
+$push:
+{
+powerTrain:
+{
+engine: "6.3 L F140 FE V12",
+electricMotor: "1 electric motor and KERS",
+powerOutput: "708 kW (950 hp; 963 PS)",
+transmission: "7-speed dual-clutch automatic"
+}
+}
+})
+
+6.
+db.car.update({carName:"LaFerrari"},
+{
+$push:
+{
+dimensions:
+{
+wheelBase: "2,650 mm (104.3 in)",
+length: "4,702 mm (185.1 in)",
+width: "1,992 mm (78.4 in)",
+height: "1,116 mm (43.9 in)",
+kerbWeight:"1,585 kg (3,495 lb)"
+}
+}
+})
+
+7.
+db.car.update({carName:"LaFerrari"},
+{
+$push:
+{
+chronology:
+{
+predecessor: "Enzo Ferrari"
+}
+}
+})
+
+8.יש לרשום פקודה מציגה את ה- collection .
+db.car.find().pretty()
+

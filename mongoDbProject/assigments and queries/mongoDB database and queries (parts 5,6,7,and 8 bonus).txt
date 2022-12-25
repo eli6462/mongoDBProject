@@ -1,0 +1,459 @@
+***חלק ה'***
+בנה בסיס נתונים mongoDB מהטבלה בחלק א'
+
+use officeSuppliesDB
+
+1.
+
+db.product.insert(
+{
+name:"0.7 pen",
+id:205510,
+category:"writing instruments",
+price:7.90,
+manufacturer:
+	{
+		manufacturerName:"pilot",
+		country:"japan",
+		email:"info@pilot.com",
+	}
+}
+)
+
+2.
+
+db.product.insert(
+{
+name:"tab dividers - 12 set",
+id:205511,
+category:"filing and storage",
+price:12.90,
+manufacturer:
+	{
+		manufacturerName:"arti",
+		country:"israel",
+		email:"support@arti.co.il",
+	}
+}
+)
+
+3.
+
+db.product.insert(
+{
+name:"sheet protectors - 50 set",
+id:205512,
+category:"filing and storage",
+price:25.90,
+manufacturer:
+	{
+		manufacturerName:"mr pen",
+		country:"usa",
+		email:"contact@mrpen.com",
+	}
+}
+)
+
+4.
+
+db.product.insert(
+{
+name:"highlighters - 6 set ",
+id:205513,
+category:"writing instruments",
+price:21.90,
+manufacturer:
+	{
+		manufacturerName:"sharpie",
+		country:"usa",
+		email:"info@sharpie.com",
+	}
+}
+)
+
+5.
+
+db.product.insert(
+{
+name:"white board ",
+id:205514,
+category:"office accessories",
+price:100,
+manufacturer:
+	{
+		manufacturerName:"pen and gear",
+		country:"usa",
+		email:"support@penandgear.com",
+	}
+}
+)
+
+6.
+
+db.product.insert(
+{
+name:"sticky notes - 200 set ",
+id:205515,
+category:"office accessories",
+price:15.90,
+manufacturer:
+	{
+		manufacturerName:"mr pen",
+		country:"usa",
+		email:"contact@mrpen.com",
+	}
+}
+)
+
+7.
+ . רשום פקודה אשר מציגה את ה-collection
+
+db.product.find().pretty()
+
+
+***חלק ו' ***
+בצע שאילתות על בסיס הנתונים:
+
+1 .הצג את כמות המסמכים.
+db.product.find().count()
+
+
+2 .בחר עם סינון לפי מיקום )()skip(), limit:)
+א- מסמך ראשון.
+ב- מסמך אחרון.
+ג- 2 מסמכים ראשונים.
+ד- 2 מסמכים אחרונים.
+
+2.
+a.
+db.product.find().limit(1).pretty()
+
+b.
+db.product.find().limit(1).skip(5).pretty()
+
+c.
+db.product.find().limit(2).pretty()
+
+d.
+db.product.find().limit(2).skip(4).pretty()
+
+
+3 .בחר עם סינון לפי אילוץ:
+א- מסמך מסויים בעזרת אילוץ על ערך מחרוזת.
+ב- מסמך מסויים בעזרת אילוץ על ערך מספרי.
+ג- 2 מסמכים בעלי ערך מספרי גבוה ביותר.
+ד- 2 מסמכים בעלי ערך מספרי נמוך ביותר.
+
+3.
+a.
+db.product.find({name : "0.7 pen"}).pretty()
+
+b.
+db.product.find({price : 12.9}).pretty()
+
+c.
+db.product.find({price : {$gt:25}}).pretty()
+
+d.
+db.product.find({price : {$lt:13}}).pretty()
+
+
+4 .מחק מסמך לבחירתך.
+
+4.
+db.product.remove({id : 205510})
+הצגת הקולקשן לבדיקה שהמסמך נמחק:
+db.product.find().pretty()
+
+
+5 .עדכן 2  מסמכים לבחירתך )יש לשמור על מבנה אחיד של מסמכים(.
+**לעדכן את כל השדות במסמך**
+
+5.
+a.
+db.product.update({"id" : 205511},
+{
+        "name" : "a4 printing paper - 500 set",
+        "id" : 205516,
+        "category" : "paper and accessories",
+        "price" : 22,
+        "manufacturer" : {
+                "manufacturerName" : "hadera paper",
+                "country" : "israel",
+                "email" : "support@hadera-paper.co.il"
+        }
+})
+
+b.
+db.product.update({"id" : 205512},
+{
+        "name" : "black printer ink",
+        "id" : 205517,
+        "category" : "printers and accessories",
+        "price" : 68,
+        "manufacturer" : {
+                "manufacturerName" : "hp",
+                "country" : "use",
+                "email" : "info@hp.com"
+        }
+})
+
+הצגת הקולקשן לבדיקת העדכונים:
+db.product.find().pretty()
+
+
+6. הצג 2 מסמכים עם סינון לפי אילוץ על ערך מחרוזת (ע"י OR).
+
+6.
+db.product.find({$or:[{ "name" : "white board "},{"name" : "sticky notes - 200 set "}]}).pretty()
+
+
+7 .הצג מסמך עם סינון לפי אילוץ על ערך מחרוזת וערך מספרי )ע"י AND.
+
+7.
+db.product.find({{$and:[{ "name" : "a4 printing paper - 500 set"},{"price" : 68}]}).pretty()
+
+
+***חלק ז'***
+שאילתות על מערך array document nested
+
+1
+• עדכן 3 מסמכים , כך שיכיל מערך document nested המייצג פרטי
+רכישה.
+• ברכישה יש 3 תכונות.
+• בצע את העדכונים כך שכל מסמך יכיל array document nested בגודל
+שונה )מספר שונה של רכישות( .
+• רשום פקודה אשר מציגה את ה-collection לאחר השינוי . 
+
+1.
+a.
+db.product.update({"id" : 205516},
+	{
+	$push:
+		{
+			purchases:
+			{
+				purchaseDate: "20.5.2022",
+				buyerName: "moshe levy",
+				amount: 3
+			}
+		}
+	}
+
+)
+
+db.product.update({"id" : 205517},
+	{
+	$push:
+		{
+			purchases:[
+			{
+				purchaseDate: "22.5.2022",
+				buyerName: "idan aviv",
+				amount: 2
+			},			
+			{
+				purchaseDate: "23.5.2022",
+				buyerName: "avraham cohen",
+				amount: 1
+			},
+			{
+				purchaseDate: "24.5.2022",
+				buyerName: "noa bar",
+				amount: 3
+			}
+			]
+		}
+	}
+
+)
+
+db.product.update({"id" : 205513},
+	{
+	$push:
+		{
+			purchases:[
+			{
+				purchaseDate: "27.5.2022",
+				buyerName: "beni porat",
+				amount: 4
+			},			
+			{
+				purchaseDate: "29.5.2022",
+				buyerName: "tzahi moyal",
+				amount: 1
+			},			
+			]
+		}
+	}
+	
+)
+
+
+
+
+פקודה שמציגה את הקולקשן לאחר שינוי:
+ db.product.find().pretty()
+
+
+
+2. 
+הוסף 2 מסמכים ל-nested document array עבור 2 מסמכים שונים. 
+•	רשום פקודה אשר מציגה את ה-collection לאחר השינוי.
+
+2.
+a.
+db.product.update({"id" : 205517},
+	{
+	$push:
+		{
+			purchases:[
+			{
+				purchaseDate: "1.6.2022",
+				buyerName: "yoni ganor",
+				amount: 5
+			},			
+			{
+				purchaseDate: "2.6.2022",
+				buyerName: "eden fahima",
+				amount: 6
+			},			
+			]
+		}
+	}
+	
+)
+
+b.
+db.product.update({"id" : 205513},
+	{
+	$push:
+		{
+			purchases:[
+			{
+				purchaseDate: "3.6.2022",
+				buyerName: "shimon ron",
+				amount: 7
+			},			
+			{
+				purchaseDate: "4.6.2022",
+				buyerName: "mati adam",
+				amount: 8
+			},			
+			]
+		}
+	}
+	
+)
+
+הצגת הקולקשן לאחר שינוי:
+db.product.find().pretty()
+
+
+4 .הוסף לכל מסמך מערך )של ערכים( בגודל שונה.
+
+4.
+(קיימים רק 5 מסמכים, היה סעיף של מחיקת מסמך אחד)
+a.
+db.product.update({"id" : 205516},{$set:{restockDates:["20.2.2022","15.3.2022"]}})
+
+b.
+db.product.update({"id" : 205517},{$set:{restockDates:["12.1.2022","17.2.2022","19.4.2022"]}})
+
+c.
+db.product.update({"id" : 205513},{$set:{restockDates:["16.1.2022","3.2.2022","16.3.2022","5.4.2022"]}})
+
+d.
+db.product.update({"id" : 205514},{$set:{restockDates:["3.1.2022","18.1.2022","25.2.2022","5.3.2022","19.4.2022"]}})
+
+e.
+db.product.update({"id" : 205515},{$set:{restockDates:["6.1.2022","12.2.2022","3.3.2022","24.3.2022","11.4.2022","29.4.2022"]}})
+
+f.
+ db.product.find().pretty()
+
+***חלק ח'(בונוס)***
+צירוף collections
+
+1 .צור collection מחלקה אשר יכיל לפחות 3 מסמכים. כל מסמך יכיל
+לפחות 3 תכונות.
+
+1. יצירת קולקשן מחלקה
+db.department.insert(
+[
+{
+departmentID: 1,
+departmentName:"paper",
+departmentHead: "avi eliyahu",
+},
+{
+departmentID: 2,
+departmentName:"writing",
+departmentHead: "roni yona",
+},
+{
+departmentID: 3,
+departmentName:"office",
+departmentHead: "bar moran",
+},
+] )
+
+2 .רשום פקודה אשר מציגה את collection המחלקה.
+
+2.
+db.department.find().pretty()
+
+
+3 .צור 3 שאילתות אשר מציגה תוצאה של צירוף collection המחלקה ל-
+collection המוצר, באמצעות תכונת המחלקה.
+
+הערה שלי :
+
+רשום בשאלה "אשר מציגה" אז לא ברור אם הכוונה היא ל 3 שאילתות או לאחת,
+במצגת יש דוגמא לאיך להציג צירוף קולקשן המחלקה לקולקשן המוצר באמצעות שאילתה אחת.
+לא הבנתי איך והאם אפשרי לעשות 3 שאילתות שונות, עשיתי את זה בשאילתה אחת.
+
+
+3.
+a.  הכנסת מפתחות זרים לקולקשן המוצר 
+(לא היה בדרישות, אבל מכיוון שלא הייתי בטוח האם בהתייחסות לקולקשן מחלקה מדובר על תאימות למאפיין "קטגוריה" בקולקשן המוצר או שלא מדובר על אותו הדבר -החלטתי לכניס מפתח זר כמו במצגת, בגלל שיש הבדל קל בין קטגוריה למחלקה בחנות) 
+
+db.product.update({"id" : 205516},
+{$set:{departmentID: 1 }}
+)
+
+db.product.update({"id" : 205515},
+{$set:{departmentID: 1 }}
+)
+
+db.product.update({"id" : 205517},
+{$set:{departmentID: 3 }}
+)
+
+db.product.update({"id" : 205513},
+{$set:{departmentID: 2 }}
+)
+
+db.product.update({"id" : 205514},
+{$set:{departmentID: 3 }}
+)
+
+3.
+b.שאילתה אשר מציגה צירוף קולקשנים
+
+db.department.aggregate(
+{
+$lookup:
+{
+from: "product",
+localField: "departmentID",
+foreignField: "departmentID",
+as: "combined"
+}
+}
+).pretty()
+
+
+
+
+

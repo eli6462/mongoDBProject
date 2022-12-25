@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6298ede5f335398dcca88609"
+  },
+  "departmentID": 1,
+  "departmentName": "paper",
+  "departmentHead": "avi eliyahu"
+},{
+  "_id": {
+    "$oid": "6298ede5f335398dcca8860a"
+  },
+  "departmentID": 2,
+  "departmentName": "writing",
+  "departmentHead": "roni yona"
+},{
+  "_id": {
+    "$oid": "6298ede5f335398dcca8860b"
+  },
+  "departmentID": 3,
+  "departmentName": "office",
+  "departmentHead": "bar moran"
+}]

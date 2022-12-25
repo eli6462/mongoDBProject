@@ -1,0 +1,173 @@
+[{
+  "_id": {
+    "$oid": "629705c26f480748ca350b28"
+  },
+  "name": "a4 printing paper - 500 set",
+  "id": 205516,
+  "category": "paper and accessories",
+  "price": 22,
+  "manufacturer": {
+    "manufacturerName": "hadera paper",
+    "country": "israel",
+    "email": "support@hadera-paper.co.il"
+  },
+  "purchases": [],
+  "courses": [],
+  "restockDates": [
+    "20.2.2022",
+    "15.3.2022"
+  ],
+  "departmentID": 1
+},{
+  "_id": {
+    "$oid": "629705cb6f480748ca350b29"
+  },
+  "name": "black printer ink",
+  "id": 205517,
+  "category": "printers and accessories",
+  "price": 68,
+  "manufacturer": {
+    "manufacturerName": "hp",
+    "country": "use",
+    "email": "info@hp.com"
+  },
+  "purchases": [
+    [
+      {
+        "purchaseDate": "22.5.2022",
+        "buyerName": "idan aviv",
+        "amount": 2
+      },
+      {
+        "purchaseDate": "23.5.2022",
+        "buyerName": "avraham cohen",
+        "amount": 1
+      },
+      {
+        "purchaseDate": "24.5.2022",
+        "buyerName": "noa bar",
+        "amount": 3
+      }
+    ],
+    [
+      {
+        "purchaseDate": "1.6.2022",
+        "buyerName": "yoni ganor",
+        "amount": 5
+      },
+      {
+        "purchaseDate": "2.6.2022",
+        "buyerName": "eden fahima",
+        "amount": 6
+      }
+    ]
+  ],
+  "restockDates": [
+    "12.1.2022",
+    "17.2.2022",
+    "19.4.2022"
+  ],
+  "departmentID": 3
+},{
+  "_id": {
+    "$oid": "629705d56f480748ca350b2a"
+  },
+  "name": "highlighters - 6 set ",
+  "id": 205513,
+  "category": "writing instruments",
+  "price": 21.9,
+  "manufacturer": {
+    "manufacturerName": "sharpie",
+    "country": "usa",
+    "email": "info@sharpie.com"
+  },
+  "purchases": [
+    [
+      {
+        "purchaseDate": "27.5.2022",
+        "buyerName": "beni porat",
+        "amount": 4
+      },
+      {
+        "purchaseDate": "29.5.2022",
+        "buyerName": "tzahi moyal",
+        "amount": 1
+      }
+    ],
+    [
+      {
+        "purchaseDate": "3.6.2022",
+        "buyerName": "shimon ron",
+        "amount": 7
+      },
+      {
+        "purchaseDate": "4.6.2022",
+        "buyerName": "mati adam",
+        "amount": 8
+      }
+    ]
+  ],
+  "restockDates": [
+    "16.1.2022",
+    "3.2.2022",
+    "16.3.2022",
+    "5.4.2022"
+  ],
+  "departmentID": 2
+},{
+  "_id": {
+    "$oid": "629705e36f480748ca350b2b"
+  },
+  "name": "white board ",
+  "id": 205514,
+  "category": "office accessories",
+  "price": 100,
+  "manufacturer": {
+    "manufacturerName": "pen and gear",
+    "country": "usa",
+    "email": "support@penandgear.com"
+  },
+  "restockDates": [
+    "3.1.2022",
+    "18.1.2022",
+    "25.2.2022",
+    "5.3.2022",
+    "19.4.2022"
+  ],
+  "departmentID": 3
+},{
+  "_id": {
+    "$oid": "629705eb6f480748ca350b2c"
+  },
+  "name": "sticky notes - 200 set ",
+  "id": 205515,
+  "category": "office accessories",
+  "price": 15.9,
+  "manufacturer": {
+    "manufacturerName": "mr pen",
+    "country": "usa",
+    "email": "contact@mrpen.com"
+  },
+  "restockDates": [
+    "6.1.2022",
+    "12.2.2022",
+    "3.3.2022",
+    "24.3.2022",
+    "11.4.2022",
+    "29.4.2022"
+  ],
+  "departmentID": 1
+},{
+  "_id": {
+    "$oid": "62a987c0c03034fa1cf5cbdc"
+  },
+  "name": "0.7 pen",
+  "id": 205510,
+  "category": "writing instruments",
+  "price": 7.9,
+  "manufacturer": {
+    "manufacturerName": "pilot",
+    "country": "japan",
+    "email": "info@pilot.com"
+  }
+}]

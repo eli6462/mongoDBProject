@@ -1,0 +1,63 @@
+1 .בחר אלמנט root ,עבור אלמנט זה, בחר את:
+א- אלמנט הילד הראשון שלו.
+ב- אלמנט הילד האחרון שלו.
+ג- 2 אלמנטים ילדים ראשונים שלו.
+ד- 2 אלמנטים ילדים אחרונים שלו.
+
+1.
+a.
+//officeSupplies/product[1]
+b.
+//officeSupplies/product[last()]
+c.
+//officeSupplies/product[position()<3]
+d.
+//officeSupplies/product[position()>last()-2]
+
+בחר ילד מסויים של root .עבור אלמנט זה, בחר את:
+א- אלמנט הילד הראשון שלו.
+ב- אלמנט הילד האחרון שלו.
+ג- 2 אלמנטים ילדים ראשונים שלו.
+ד- 2 אלמנטים ילדים אחרונים שלו.
+
+2.
+a.
+//officeSupplies/product[1]/name
+b.
+//officeSupplies/product[1]/manufacturer
+c.
+//product[1]/name | //product[1]/id
+d.
+//product[1]/price | //product[1]/manufacturer
+
+3 .בחר נכד של root אשר יש לו 3 בנים, עבור אלמנט זה:
+א- אלמנט הילד הראשון שלו.
+ב- אלמנט הילד האחרון שלו.
+
+3.
+a.
+//product[1]/manufacturer/manufacturerName
+b.
+//product[1]/manufacturer/email
+
+4 .עבור כל האלמנטים אשר מכילים אלמנט בן מספרי. מתוכם בחר :
+א- 2 אלמנטים בעלי ערך מספרי הגבוה ביותר.
+ב- 2 אלמנטים בעלי ערך מספרי הנמוך ביותר
+
+4.
+a.
+//product[price>25]
+b.
+//product[price<13]
+
+5 .עבור אלמנטים בנים של root , על ידי שימוש ב- | בחר:
+א- צירופים של אלמנט ראשון ואחרון בעזרת ()position .
+ב- צירופים של אלמנט שני ולפני אחרון ()position.
+
+5.
+a.
+//product[position()<2] | //product[position()>last()-1]
+b.
+(אין דרך לעשות את זה עם position)
+//product[2] | //product[5]    
+

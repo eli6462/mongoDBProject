@@ -1,0 +1,87 @@
+<!DOCTYPE officeSupplies[
+    <!ELEMENT officeSupplies (product+)>
+        <!ELEMENT product (name,id,category,price,manufacturer+)>
+            <!ELEMENT name (#PCDATA)>
+            <!ELEMENT id (#PCDATA)>
+            <!ELEMENT category (#PCDATA)>
+            <!ELEMENT price (#PCDATA)>
+            <!ELEMENT manufacturer (manufacturerName,country,email)>
+                <!ELEMENT manufacturerName (#PCDATA)>
+                <!ELEMENT country (#PCDATA)>
+                <!ELEMENT email (#PCDATA)>
+]>
+
+<officeSupplies>
+    <product>
+        <name>0.7 Pen</name>
+        <id>205510></id>
+        <category>writing instruments</category>
+        <price>7.90</price>
+        <manufacturer>
+            <manufacturerName>pilot</manufacturerName>
+            <country>japan</country>
+            <email>info@pilot.com</email>
+        </manufacturer>
+    </product>
+
+    <product>
+        <name>tab dividers - 12 set</name> <!--חוצצים-->
+        <id>205511></id>
+        <category>filing and storage</category> 
+        <price>12.90</price>
+        <manufacturer>
+            <manufacturerName>arti</manufacturerName>
+            <country>israel</country>
+            <email>support@arti.co.il</email>
+        </manufacturer>
+    </product>
+
+    <product>
+        <name>sheet protectors - 50 set</name> <!--שמרדפים(שקית ניילון לדף)-->
+        <id>205512></id>
+        <category>filing and storage</category>
+        <price>25.90</price>
+        <manufacturer>
+            <manufacturerName>mr pen</manufacturerName>
+            <country>usa</country>
+            <email>contact@mrpen.com</email>
+        </manufacturer>
+    </product>
+
+    <product>
+        <name>highlighters - 6 set </name> <!--טוש הדגשה-->
+        <id>205513></id>
+        <category>writing instruments</category>
+        <price>21.90</price>
+        <manufacturer>
+            <manufacturerName>sharpie</manufacturerName>
+            <country>usa</country>
+            <email>info@sharpie.com</email>
+        </manufacturer>
+    </product>
+
+    <product>
+        <name>white board</name> <!--לוח מחיק-->
+        <id>205514></id>
+        <category>office accessories</category>
+        <price>100</price>
+        <manufacturer>
+            <manufacturerName>pen and gear</manufacturerName>
+            <country>usa</country>
+            <email>support@penandgear.com</email>
+        </manufacturer>
+    </product>
+
+    <product>
+        <name>sticky notes - 200 set</name> <!--פתקים דביקים-->
+        <id>205515></id>
+        <category>office accessories</category>
+        <price>15.90</price>
+        <manufacturer>
+            <manufacturerName>mr pen</manufacturerName>
+            <country>usa</country>
+            <email>contact@mrpen.com</email>
+        </manufacturer>
+    </product>
+
+</officeSupplies>
